@@ -16,7 +16,7 @@ export class LoginService {
 
     public login(name: String, password: String): Observable<String> {
         return this.http
-            .post(`${environment.api.protocol}://${environment.api.url}/tokens`, {
+            .post('/tokens', {
                 name,
                 password
             })
