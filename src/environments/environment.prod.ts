@@ -1,6 +1,7 @@
 export const environment = {
     production: true,
     api: {
-        protocol: 'http'
+        protocol: 'http',
+        url: 'localhost:3000'
     }
 };

@@ -23,7 +23,7 @@ export class WebSocketService implements Resettable {
                 observer.error(new Error('socket is already connected. disconnect first'));
                 return;
             }
-            this._socket = io.connect({
+            this._socket = io.connect(environment.api.url, {
                 query: {
                     token: this._authService.token
                 }

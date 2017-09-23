@@ -83,7 +83,7 @@ export class UserService implements Resettable, Initializable {
         headers.set('Authorization', this._authService.token.toString());
 
         return this._http
-            .get('/users', {
+            .get(`${environment.api.protocol}://${environment.api.url}/users`, {
                 headers: headers
             })
             .flatMap((response: Response) => {

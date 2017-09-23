@@ -17,7 +17,7 @@ export class SignupService implements OnDestroy {
 
     public create(name: String, password: String): Observable<String> {
         return this.http
-            .post('/users', {
+            .post(`${environment.api.protocol}://${environment.api.url}/users`, {
                 name,
                 password
             })
