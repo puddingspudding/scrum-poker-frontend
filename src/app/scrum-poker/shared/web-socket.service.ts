@@ -24,7 +24,6 @@ export class WebSocketService implements Resettable {
                 return;
             }
             if ('url' in environment.api && environment.api.url.length > 0) {
-                console.log(1);
                 this._socket = io.connect(environment.api.url, {
                     query: {
                         token: this._authService.token
