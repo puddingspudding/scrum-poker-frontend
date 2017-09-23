@@ -23,11 +23,21 @@ export class WebSocketService implements Resettable {
                 observer.error(new Error('socket is already connected. disconnect first'));
                 return;
             }
-            this._socket = io.connect(environment.api.url, {
-                query: {
-                    token: this._authService.token
-                }
-            });
+            if ('url' in environment.api && environment.api.url.length > 0) {
+                console.log(1);
+                this._socket = io.connect(environment.api.url, {
+                    query: {
+                        token: this._authService.token
+                    }
+                });
+            } else {
+                this._socket = io.connect({
+                    query: {
+                        token: this._authService.token
+                    }
+                });
+            }
+
             this._socket.on('disconnect', () => {
                 this._authService.reset();
                 this.reset();
